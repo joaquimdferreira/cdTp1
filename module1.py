@@ -1,18 +1,21 @@
-from ap1 import ex4
+import random
+
+from ap1 import *
 import pandas as pd
 import numpy as np
 
 
 def ex2a():
-    ex4("a.txt")
-    ex4("alice29.txt")
-    ex4("cp.htm")
-    ex4("lena.bmp")
-    ex4("Person.java")
-    ex4("progc.c")
+    ex5d_text("a.txt")
+    ex5d_text("alice29.txt")
+    ex5d_text("cp.htm")
+    ex5d_image("lena.bmp")
+    ex5d_text("Person.java")
+    ex5d_text("progc.c")
 
 
-ex2a()
+# ex2a()
+
 
 def ex2b(file_name):
     print('------------------------------------------------------------------------------------')
@@ -36,6 +39,31 @@ def ex2b(file_name):
                       columns=['Char', 'n of Occurrences', '% of Occurrence'])
     print(df.to_string())
 
-
 # ex2b("ListaPalavrasPT.txt")
 # ex2b("ListaPalavrasEN.txt")
+
+def ex3a(n, m):
+    str = ''
+    for i in range(n):
+        str += random.choice(m)
+    return str
+
+
+alphabet = []
+for i in range(26):
+    alphabet.append(chr(ord('a')+i))
+for i in range(26):
+    alphabet.append(chr(ord('A') + i))
+for i in range(10):
+    alphabet.append(chr(ord('0')+i))
+alphabet.append('!')
+alphabet.append('?')
+alphabet.append('*')
+alphabet.append('+')
+print(ex3a(100000, alphabet))
+
+list1 = []
+for i in range(66):
+    list1.append(1)
+entropy = -1 * sum(map(lambda x: x / 66 * np.log(x / 66), list1))
+print(entropy)
