@@ -14,7 +14,7 @@ def ex5a(n, u, r):
 # ex5a(10, 1, 2)
 
 
-def ex5b(a, b):
+def ap1ex5b(a, b):
     if a == b:
         print('mdc is: %d' % a)
     elif a == 0:
@@ -22,9 +22,9 @@ def ex5b(a, b):
     elif b == a:
         print('mdc is: %d' % a)
     elif a > b:
-        ex5b(a - b, b)
+        ap1ex5b(a - b, b)
     else:
-        ex5b(a, b - a)
+        ap1ex5b(a, b - a)
 
 
 # print('------------------------------------------------------------------------------------')
@@ -32,7 +32,7 @@ def ex5b(a, b):
 # ex5b(105, 252)
 
 
-def ex5c(file_name):
+def ap1ex5c(file_name):
     print('------------------------------------------------------------------------------------')
     print('ex3')
     chars = {}
@@ -55,7 +55,7 @@ def ex5c(file_name):
 # ex5c("a.txt")
 
 
-def ex5d(file_name):
+def ap1ex5d(file_name):
     print('------------------------------------------------------------------------------------')
     print('ex4')
     chars = {}

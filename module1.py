@@ -7,12 +7,12 @@ import numpy as np
 
 
 def ex2a():
-    ex5d_text("../../a.txt")
-    ex5d_text("../../alice29.txt")
-    ex5d_text("../../cp.htm")
-    ex5d_image("lena.bmp")
-    ex5d_text("../../Person.java")
-    ex5d_text("../../progc.c")
+    ap1ex5d("a.txt")
+    ap1ex5d("alice29.txt")
+    ap1ex5d("cp.htm")
+    ap1ex5d("lena.bmp")
+    ap1ex5d("Person.java")
+    ap1ex5d("progc.c")
 
 
 # ex2a()
@@ -123,9 +123,27 @@ def ex4b(file_name, constant):
         prob = []
         for x in range(255):
             abc.append(chr(ord('a') + x))
-            prob.append(float(1/255))
+            prob.append(float(1 / 255))
         key = ex3a(len(buffer), abc, prob)
     print(ex4a(buffer, key))
 
 
-ex4b('alice29.txt', None)
+# ex4b('alice29.txt', 'a')
+
+
+def ex5a(seq, ber):
+    alpha = ['0', '1']
+    for_one = [float(ber), float(1 - ber)]
+    for_zero = [float(1 - ber), float(ber)]
+    final_seq = []
+    for b in seq:
+        if b == '1':
+            final_seq.append(ex3a(1, alpha, for_one)[0])
+        elif b == '0':
+            final_seq.append(ex3a(1, alpha, for_zero)[0])
+        else:
+            return None
+    return final_seq
+
+
+print(ex5a('1010', float(0.25)))
