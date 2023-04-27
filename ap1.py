@@ -85,4 +85,4 @@ def ap1ex5d(file_name):
     print('Entropy is: %f' % entropy)
 
 
-# ex5d("alice29.txt")
+# ap1ex5d("alice29.txt")

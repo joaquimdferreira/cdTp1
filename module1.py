@@ -136,6 +136,7 @@ def ex5a(seq, ber):
     for_one = [float(ber), float(1 - ber)]
     for_zero = [float(1 - ber), float(ber)]
     final_seq = []
+    err_count = 0
     for b in seq:
         if b == '1':
             final_seq.append(ex3a(1, alpha, for_one)[0])
@@ -143,7 +144,40 @@ def ex5a(seq, ber):
             final_seq.append(ex3a(1, alpha, for_zero)[0])
         else:
             return None
+        if b != final_seq[-1]:
+            err_count += 1
+    print(f"Given BER = {ber}")
+    print(f"Real BER = {float(err_count / len(seq))}")
     return final_seq
 
 
-print(ex5a('1010', float(0.25)))
+# print(ex5a('1010', float(0.25)))
+
+
+def ex5bi(inp, size):
+    input = inp
+    if len(inp) > size * size:
+        return ''
+    matrix = []
+    for i in range(size):
+        matrix.append([])
+    for j in range(size):
+        for k in range(size):
+            if input == '':
+                break
+            matrix[j].append(input[0])
+            input = input[1:]
+    coded = ''
+    for l in range(size):
+        for j in range(size):
+            try:
+                coded += matrix[j][l]
+            finally:
+                continue
+    return coded
+
+
+print(ex5bi("abcdefhi", 3))
+
+def ex5bii(file1, file2):
+
