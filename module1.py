@@ -4,6 +4,7 @@ from utils import *
 from ap1 import *
 import pandas as pd
 import numpy as np
+import math as math
 
 
 def ex2a():
@@ -177,7 +178,30 @@ def ex5bi(inp, size):
     return coded
 
 
-print(ex5bi("abcdefhi", 3))
+# print(ex5bi("abcdefhi", 3))
+
 
 def ex5bii(file1, file2):
+    buffer = ''
+    f = open(file1, "r", encoding='iso-8859-1')
+    while 1:
+        c = f.read(1)
+        if not c:
+            break
+        else:
+            buffer += c
+    coded_str = ex5bi(buffer, math.ceil(math.sqrt(len(buffer))))
+    print(coded_str)
+    for x in range(len(coded_str)):
+        ch = coded_str[x]
+        bn = char_to_binary(ch)
+        new_bn = ex5a(bn, float(0.1))
+        new_ch = binary_to_char(new_bn)
+        coded_str = coded_str[:x] + new_ch + coded_str[x + 1:]
+    print(coded_str)
+    g = open(file2, "w", encoding='iso-8859-1')
+    for i in coded_str:
+        g.write(i)
 
+
+ex5bii('a.txt', 'b.txt')
