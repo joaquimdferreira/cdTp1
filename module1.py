@@ -82,6 +82,7 @@ def ex3c():
     p = []
     for x in range(len(alphabet)):
         p.append(float(1 / len(alphabet)))
+    i = 0
     while 1:
         res = ex3a(random.randint(8, 12), alphabet, p)
         if (
@@ -90,10 +91,13 @@ def ex3c():
                 any(substring in res for substring in nums) and
                 any(substring in res for substring in symbols)
         ):
-            return res
+            print(res)
+            i += 1
+            if i == 5:
+                return
 
 
-# print(ex3c())
+# ex3c()
 
 # make vernam cypher
 def ex4a(plain_text, the_key):
