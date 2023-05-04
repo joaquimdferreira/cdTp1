@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def ex5a(n, u, r):
+def ex1(n, u, r):
     print('ex1')
     curr = u
     for i in range(n):
