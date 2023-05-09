@@ -127,7 +127,7 @@ def ex4b(file_name, constant):
         abc = []
         prob = []
         for x in range(255):
-            abc.append(chr(ord('a') + x))
+            abc.append(chr(0 + x))
             prob.append(float(1 / 255))
         key = ex3a(len(buffer), abc, prob)
     print(ex4a(buffer, key))
